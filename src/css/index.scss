@@ -1,0 +1,89 @@
+@charset "utf-8";
+@font-face {
+  font-family: "iconfont"; /* project id 776597 */
+  src: url("//at.alicdn.com/t/font_776597_bpuz6p764bq.eot");
+  src: url("//at.alicdn.com/t/font_776597_bpuz6p764bq.eot?#iefix")
+      format("embedded-opentype"),
+    url("//at.alicdn.com/t/font_776597_bpuz6p764bq.woff") format("woff"),
+    url("//at.alicdn.com/t/font_776597_bpuz6p764bq.ttf") format("truetype"),
+    url("//at.alicdn.com/t/font_776597_bpuz6p764bq.svg#iconfont") format("svg");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+//flex布局
+@mixin flex($direction, $justify: center, $alignItems: center) {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $alignItems;
+}
+//字体样式
+@mixin font(
+  $size: 14px,
+  $weight: 500,
+  $family: "微软雅黑",
+  $height: 1.4,
+  $color: #000
+) {
+  font-size: $size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $height;
+  color: $color;
+}
+//多行文本溢出
+@mixin overflow($num: 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+#root {
+  width: 100%;
+  height: 100%;
+  .app {
+    width: 100%;
+    height: 100%;
+  }
+}
+/* 底部导航栏 */
+.tabBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.44rem;
+  @include flex(row, flex-start, center);
+  width: 100%;
+  height: 100%;
+  li {
+    flex: 1;   
+    font-size: 12px;
+    a{
+      @include flex(column, center, center);
+      .iconfont {
+        font-size: 20px;
+      }
+      
+    }
+    .active {
+      color: blue;
+    }
+  }
+  
+}
